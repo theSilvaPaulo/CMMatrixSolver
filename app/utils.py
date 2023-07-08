@@ -1,4 +1,3 @@
-from flask import Flask, jsonify, request
 
 def invert_diagonals(matrix):
     n = len(matrix)
@@ -7,5 +6,15 @@ def invert_diagonals(matrix):
     return matrix
 
 def count_submatrix(matrix, submatrix):
-    # Lógica para contar quantas vezes a submatriz pode ser encontrada na matriz
-    pass
+    m = len(matrix)
+    n = len(matrix[0])
+    k = len(submatrix)
+    l = len(submatrix[0])
+    count = 0
+
+    for i in range(m - k + 1):
+        for j in range(n - l + 1):
+            if matrix[i:i+k] == submatrix and all(matrix[row][j:j+l] == submatrix[row-i] for row in range(i, i+k)):
+                count += 1
+    
+    return count

@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from app.utils import invert_diagonals, count_submatrix
+from app.utils import count_submatrix, invert_diagonals
 from flask import Blueprint
 
 app_views = Blueprint('app_views', __name__)
