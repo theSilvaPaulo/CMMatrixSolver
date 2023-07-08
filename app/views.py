@@ -1,13 +1,17 @@
-from flask import app, jsonify, request
+from flask import jsonify, request
 from app.utils import invert_diagonals, count_submatrix
+from flask import Blueprint
 
-@app.route('/invert-diagonals', methods=['POST'])
+app_views = Blueprint('app_views', __name__)
+
+@app_views.route('/invert-diagonals', methods=['POST'])
 def api_invert_diagonals():
+    return 'hi'
     matrix = request.json.get('matrix')
     inverted_matrix = invert_diagonals(matrix)
     return jsonify({'inverted_matrix': inverted_matrix})
 
-@app.route('/count-submatrix', methods=['POST'])
+@app_views.route('/count-submatrix', methods=['POST'])
 def api_count_submatrix():
     matrix = request.json.get('matrix')
     submatrix = request.json.get('submatrix')
