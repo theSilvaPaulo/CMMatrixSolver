@@ -1,7 +1,11 @@
+from flask import Flask, jsonify, request
+
 def invert_diagonals(matrix):
-    # Implemente a lógica para inverter as diagonais da matriz quadrada
-    pass
+    n = len(matrix)
+    for i in range(n):
+        matrix[i][i], matrix[i][n-i-1] = matrix[i][n-i-1], matrix[i][i]
+    return matrix
 
 def count_submatrix(matrix, submatrix):
-    # Implemente a lógica para contar quantas vezes a submatriz pode ser encontrada na matriz
+    # Lógica para contar quantas vezes a submatriz pode ser encontrada na matriz
     pass
