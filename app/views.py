@@ -6,7 +6,6 @@ app_views = Blueprint('app_views', __name__)
 
 @app_views.route('/invert-diagonals', methods=['POST'])
 def api_invert_diagonals():
-    return 'hi'
     matrix = request.json.get('matrix')
     inverted_matrix = invert_diagonals(matrix)
     return jsonify({'inverted_matrix': inverted_matrix})
