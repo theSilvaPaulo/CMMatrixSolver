@@ -1,20 +1,25 @@
 
-def invert_diagonals(matrix):
-    n = len(matrix)
+def inverte_diagonais(matriz):
+    n = len(matriz)
     for i in range(n):
-        matrix[i][i], matrix[i][n-i-1] = matrix[i][n-i-1], matrix[i][i]
-    return matrix
+        matriz[i][i], matriz[i][n-i-1] = matriz[i][n-i-1], matriz[i][i]
+    return matriz
 
-def count_submatrix(matrix, submatrix):
-    m = len(matrix)
-    n = len(matrix[0])
-    k = len(submatrix)
-    l = len(submatrix[0])
-    count = 0
+def conta_submatriz(matriz, submatriz):
+    m = len(matriz)
+    n = len(matriz[0])
+    k = len(submatriz)
+    l = len(submatriz[0])
+    contagem = 0
 
     for i in range(m - k + 1):
         for j in range(n - l + 1):
-            if matrix[i:i+k] == submatrix and all(matrix[row][j:j+l] == submatrix[row-i] for row in range(i, i+k)):
-                count += 1
+            encontrou = True
+            for linha in range(k):
+                if matriz[i + linha][j:j + l] != submatriz[linha]:
+                    encontrou = False
+                    break
+            if encontrou:
+                contagem += 1
     
-    return count
+    return contagem
